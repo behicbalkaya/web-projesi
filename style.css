@@ -1,0 +1,13 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+
+  .container{
+    background:url(download.jpg) ;
+    height:100vh ;
+    background-size:100% 100% ;
+  } 
+
+ 
