@@ -51,7 +51,7 @@
 
 }
 
-navbar ul li active,
+.navbar ul li a.active,
 .navbar ul li a:hover{
     background: hsla(11, 96%, 54%, 0.568);
     border-radius: 2px;
