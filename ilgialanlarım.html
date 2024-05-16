@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İlgi Alanlarım</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url(gokyuzu-1.jpg);
+            background-size: 100% 302%;
+            
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+        }
+        .section {
+            width: 45%;
+        }
+        h2 {
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+        }
+        .item {
+            margin-bottom: 15px;
+        }
+
+        .navbar{
+            width: 100% ;
+            height: 80px;
+            background: rgba(24, 188, 6, 0.4);
+  
+        }
+
+        .navbar .logo{
+            display: inline-block;
+            margin-left: 50px;
+            margin-top: 20px;
+
+        } 
+
+        .navbar .logo a{
+            text-decoration: none;
+            font-size: 25px;
+            font-family: sans-serif;
+            color: white;
+        }
+        .navbar ul{
+            float: right;
+            margin-right: 20px;
+        }
+
+        .navbar ul li{
+            list-style: none;
+            display: inline-block;
+            margin: 0 8px;
+            line-height: 80px;
+
+        }
+
+        .navbar ul li a{
+            color: antiquewhite;
+            text-decoration: none;
+            font-size: 20px;
+            padding: 6px 13px;
+            font-family:sans-serif;
+
+        }
+
+
+        .navbar ul li a:hover{
+            background: hsla(11, 96%, 54%, 0.568);
+            border-radius: 2px;
+        }
+       
+        
+    
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="benim sayfam.html">BEHİÇ BALKAYA</a>
+        </div>
+        <ul>
+        <li><a href="benim sayfam.html" class="active">HAKKIMDA</a></li>
+        <li><a href="özgeçmişim.html">ÖZGEÇMİŞİM</a></li>
+        <li><a href="şehrim.html">ŞEHRİM</a></li>
+        <li><a href="TAKIMIMIZ.html">TAKIMIMIZ</a></li>
+        <li><a href="ilgialanlarım.html">İLGİ ALANLARIM</a></li>
+        <li><a href="iletisim.html">İLETİŞİM</a></li>
+        <li><a href="login.html">GİRİŞ</a></li>
+
+        </ul>
+    
+    
+    </div>
+
+    <h1>İlgi Alanlarım</h1>
+    <div class="container">
+        <div class="section" id="movies-section">
+            <h2>Filmler</h2>
+            
+            <div id="movies"></div>
+        </div>
+        <div class="section" id="sports-section">
+            <h2>Spor</h2>
+            
+            <div id="sports"></div>
+        </div>
+    </div>
+    <script>
+        const tmdbApiKey = 'YOUR_TMDB_API_KEY';
+        const sportsDbApiKey = 'YOUR_SPORTSDB_API_KEY';
+
+        async function fetchMovies() {
+            const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${tmdbApiKey}&language=tr-TR`);
+            const data = await response.json();
+            const moviesContainer = document.getElementById('movies');
+            data.results.forEach(movie => {
+                const movieElement = document.createElement('div');
+                movieElement.className = 'item';
+                movieElement.innerHTML = `<h3>${movie.title}</h3><p>${movie.overview}</p>`;
+                moviesContainer.appendChild(movieElement);
+            });
+        }
+
+        async function fetchSports() {
+            const response = await fetch(`https://www.thesportsdb.com/api/v1/json/${sportsDbApiKey}/1/search_all_leagues.php?s=Soccer`);
+            const data = await response.json();
+            const sportsContainer = document.getElementById('sports');
+            data.countrys.forEach(sport => {
+                const sportElement = document.createElement('div');
+                sportElement.className = 'item';
+                sportElement.innerHTML = `<h3>${sport.strLeague}</h3><p>${sport.strDescriptionEN}</p>`;
+                sportsContainer.appendChild(sportElement);
+            });
+        }
+
+        fetchMovies();
+        fetchSports();
+    </script>
+</body>
+</html>
