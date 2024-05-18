@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Sayfası</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgba(24, 188, 6, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .login-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin-top: 120px; /* Navbar yüksekliğini dikkate alarak yeterli boşluk bırakıldı */
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #08991d;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #08991d;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-container button:hover {
+            background-color: #066b12;
+        }
+        .error {
+            color: #d9534f;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .navbar {
+            width: 100%;
+            height: 80px;
+            background: rgba(24, 188, 6, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px;
+            box-sizing: border-box;
+            position: fixed; /* Navbar'ı sabit konuma getirme */
+            top: 0; /* Üst kısma yerleştirme */
+            left: 0;
+            z-index: 1000; /* Diğer içeriklerin üstünde görüntülenmesini sağlama */
+        }
+        .logo a {
+            text-decoration: none;
+            font-size: 25px;
+            font-family: sans-serif;
+            color: white;
+        }
+        .navbar ul {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .navbar ul li {
+            margin: 0 10px;
+        }
+        .navbar ul li a {
+            color: antiquewhite;
+            text-decoration: none;
+            font-size: 20px;
+            font-family: sans-serif;
+        }
+        .navbar ul li a:hover {
+            background: rgba(255, 69, 0, 0.6);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="benimsayfam.html">BEHİÇ BALKAYA</a>
+        </div>
+        <ul>
+            <li><a href="benimsayfam.html">HAKKIMDA</a></li>
+            <li><a href="özgeçmişim.html">ÖZGEÇMİŞİM</a></li>
+            <li><a href="şehrim.html">ŞEHRİM</a></li>
+            <li><a href="TAKIMIMIZ.html">TAKIMIMIZ</a></li>
+            <li><a href="ilgialanlarım.html">İLGİ ALANLARIM</a></li>
+            <li><a href="iletisim.html">İLETİŞİM</a></li>
+            <li><a href="login.html" class="active">GİRİŞ</a></li>
+        </ul>
+    </div>
+    <div class="login-container">
+        <h2>Giriş Yap</h2>
+        <form action="login.php" method="post">
+            <input type="text" name="username" placeholder="Kullanıcı Adı (örneğin b1812100001@sakarya.edu.tr)" required>
+            <input type="password" name="password" placeholder="Şifre (örneğin b1812100001)" required>
+            <button type="submit">Giriş Yap</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
